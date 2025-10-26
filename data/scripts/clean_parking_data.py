@@ -9,8 +9,13 @@ load_dotenv()
 # =========================
 # 설정
 # =========================
-RAW_DIR = "C:/Users/hyoun/SeoulSmartParking/data/raw"
-PROCESSED_DIR = "C:/Users/hyoun/SeoulSmartParking/data/processed"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, "../raw")
+PROCESSED_DIR = os.path.join(BASE_DIR, "../processed")
+
+#절대경로로 변경함
+#RAW_DIR = "C:/Users/hyoun/SeoulSmartParking/data/raw"
+#PROCESSED_DIR = "C:/Users/hyoun/SeoulSmartParking/data/processed"
 
 VWORLD_API_KEY = os.getenv("VWORLD_API_KEY")
 VWORLD_API_URL = "https://api.vworld.kr/req/address"

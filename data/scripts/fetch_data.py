@@ -13,7 +13,8 @@ os.makedirs(RAW_DIR, exist_ok=True)
 print(f"📁 raw 폴더 위치: {RAW_DIR}")
 
 # === API 키 ===
-SEOUL_API_KEY = os.getenv("SEOUL_API_KEY")   
+SEOUL_PARKING_API_KEY = os.getenv("SEOUL_PARKING_API_KEY")  
+SEOUL_EV_API_KEY = os.getenv("SEOUL_EV_API_KEY") 
 
 # === JSON 저장 함수 ===
 def save_json(data, filename):
@@ -41,7 +42,7 @@ def fetch_all_parking_data():
     batch_size = 1000
     for start in range(1, total_records + 1, batch_size):
         end = min(start + batch_size - 1, total_records)
-        url = f"http://openapi.seoul.go.kr:8088/{SEOUL_API_KEY}/xml/GetParkInfo/{start}/{end}/"
+        url = f"http://openapi.seoul.go.kr:8088/{SEOUL_PARKING_API_KEY}/xml/GetParkInfo/{start}/{end}/"
         filename = f"parking_{start}_{end}_{datetime.now().strftime('%Y%m%d')}.json"
         fetch_xml_to_json(url, filename)
 
@@ -51,7 +52,7 @@ def fetch_all_ev_data():
     batch_size = 100
     for start in range(1, total_records + 1, batch_size):
         end = min(start + batch_size - 1, total_records)
-        url = f"http://openapi.seoul.go.kr:8088/{SEOUL_API_KEY}/xml/evChargingStation/{start}/{end}/"
+        url = f"http://openapi.seoul.go.kr:8088/{SEOUL_EV_API_KEY}/xml/evChargingStation/{start}/{end}/"
         filename = f"evcharger_{start}_{end}_{datetime.now().strftime('%Y%m%d')}.json"
         fetch_xml_to_json(url, filename)
 
