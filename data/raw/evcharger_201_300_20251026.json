@@ -14,13 +14,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "공공기관",
         "RGN": "서울특별시",
-        "SGG": "마포구",
+        "SGG": "마포구 ",
         "ADDR": "서울특별시 마포구 월드컵로36길 15 지상 주차장지상 자전거 거치대 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -30,13 +30,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "동작구",
+        "SGG": "동작구 ",
         "ADDR": "서울특별시 동작구 시흥대로 596 가6번 구획가 6번 구획",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -46,13 +46,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 남부순환로 331 메디힐병원 뒤 요금정산소 인근요금정산소 옆",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -62,13 +62,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 신정중앙로 35 쌍용자동차 앞쌍용자동차 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -78,13 +78,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 신정중앙로 35 쌍용자동차 앞쌍용자동차 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -94,13 +94,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "용산구",
+        "SGG": "용산구 ",
         "ADDR": "서울특별시 용산구 원효로35길 53 신창동 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -110,13 +110,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -126,13 +126,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -142,13 +142,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -158,13 +158,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -174,13 +174,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -190,13 +190,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -206,13 +206,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -222,13 +222,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -238,13 +238,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -254,13 +254,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -270,13 +270,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -286,13 +286,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서초구",
+        "SGG": "서초구 ",
         "ADDR": "서울특별시 서초구 바우뫼로12길 73 (양재동, 양재솔라스테이션) 지상1층 진입로 오른쪽 5M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -302,13 +302,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 87 주차장 안쪽",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -318,13 +318,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 87 주차장 안쪽",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -334,13 +334,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "관공서",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 105 (신정동, 양천구청) 지상1층 진입로 우측 10M 지점",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -350,13 +350,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -366,13 +366,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -382,13 +382,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -398,13 +398,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -414,13 +414,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -430,13 +430,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (능동, 어린이대공원 구의문공영주차장) 지상1층 진입로 정면 10M지점구의문 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -446,13 +446,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 능동로 216 (서울특별시 광진구 천호대로124길 11 전기차충전소)후문주차장",
         "UTZTN_PSBLTY_TM": "주중 08:00~19:00, 주말 09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -462,13 +462,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 여의공원로 13 kBS홀 앞 전기차 충전소kBS홀 앞 전기차 충전소",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -478,13 +478,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 여의공원로 13 kBS홀 앞 전기차 충전소kBS홀 앞 전기차 충전소",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -494,13 +494,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 여의공원로 13 kBS홀 앞 전기차 충전소kBS홀 앞 전기차 충전소",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -510,13 +510,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 의사당대로 1 국회1어린이집 인근(식물원 앞)국회제1어린이집 인근",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -526,13 +526,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 의사당대로 1 국회1어린이집 인근(식물원 앞)국회제1어린이집 인근",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -542,13 +542,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "서대문구",
+        "SGG": "서대문구 ",
         "ADDR": "서울특별시 서대문구 연희동 736 거주자우선주차장 32-10 구획거주자우선주차장 32-10 구획",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -558,13 +558,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "서대문구",
+        "SGG": "서대문구 ",
         "ADDR": "서울특별시 서대문구 연희로15길 113 연희제2공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -574,13 +574,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "서대문구",
+        "SGG": "서대문구 ",
         "ADDR": "서울특별시 서대문구 연희로15길 113 연희제2공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -590,13 +590,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "강남구",
+        "SGG": "강남구 ",
         "ADDR": "서울특별시 강남구 테헤란로88길 17 파리바게뜨 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -606,13 +606,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "강남구",
+        "SGG": "강남구 ",
         "ADDR": "서울특별시 강남구 삼성로86길 23 요금정산소 옆",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -622,13 +622,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동서로 159-3 LG유플러스 인근",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -638,13 +638,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 성균관로 91 올림픽기념국민생활관",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -654,13 +654,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 성균관로 91 올림픽기념국민생활관",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -670,13 +670,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 성균관로 91 올림픽기념국민생활관",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -686,13 +686,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 성균관로 91 올림픽기념국민생활관",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -702,13 +702,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "노원구",
+        "SGG": "노원구 ",
         "ADDR": "서울특별시 노원구 광운로 20 2-16 구획주차구획 2-16",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -718,13 +718,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "송파구",
+        "SGG": "송파구 ",
         "ADDR": "서울특별시 송파구 위례성대로 68 위례성길 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -734,13 +734,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "송파구",
+        "SGG": "송파구 ",
         "ADDR": "서울특별시 송파구 위례성대로 68 위례성길 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -750,13 +750,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "강북구",
+        "SGG": "강북구 ",
         "ADDR": "서울특별시 강북구 솔샘로67길 33 으뜸공원 공영주차장으뜸공원 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -766,13 +766,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "은평구",
+        "SGG": "은평구 ",
         "ADDR": "서울특별시 은평구 서오릉로 지하47 은평평화공원 지하공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -782,13 +782,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 을지로 213 신한은행 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -798,13 +798,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 을지로 167 하나은행 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -814,13 +814,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "동대문구",
+        "SGG": "동대문구 ",
         "ADDR": "서울특별시 동대문구 이문동 209-1 이문고가 인근이문고가차도 인근(가로공원 인근 주차장)",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -830,13 +830,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 자양번영로 45 노상공영주차장 유료 42번노상공영주차장 유료 42번",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -846,13 +846,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 구의강변로 11 정문 앞 유료 48번정문 앞 유료 48번",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -862,13 +862,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "송파구",
+        "SGG": "송파구 ",
         "ADDR": "서울특별시 송파구 올림픽로8길 20 잠실 청소년센터잠실 청소년센터",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -878,13 +878,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 새문안로5길 49-1 (서울특별시 종로구 새문안로 5길 47 전기차충전소)서울특별시 종로구 적선동 172 적선동공영주차장",
         "UTZTN_PSBLTY_TM": "주중 08:00~19:00, 주말 09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -894,13 +894,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "종로구",
+        "SGG": "종로구 ",
         "ADDR": "서울특별시 종로구 새문안로5길 49-1 (서울특별시 종로구 새문안로 5길 47 전기차충전소)서울특별시 종로구 적선동 172 적선동공영주차장",
         "UTZTN_PSBLTY_TM": "주중 08:00~19:00, 주말 09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -910,13 +910,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "동대문구",
+        "SGG": "동대문구 ",
         "ADDR": "서울특별시 동대문구 정릉천동로 125-1 빌라 앞 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -926,13 +926,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "광진구",
+        "SGG": "광진구 ",
         "ADDR": "서울특별시 광진구 긴고랑로 66 중곡동우체국 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -942,13 +942,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "관공서",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉화산로 190 지하1층지하1층",
         "UTZTN_PSBLTY_TM": "09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -958,13 +958,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "관공서",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉화산로 179 (신내동, 중랑구청) 지하1층 19번 기둥",
         "UTZTN_PSBLTY_TM": "주중 08:00~19:00, 주말 09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -974,13 +974,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "관공서",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉화산로 179 (신내동, 중랑구청) 지하1층 19번 기둥",
         "UTZTN_PSBLTY_TM": "주중 08:00~19:00, 주말 09:00~18:00",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -990,13 +990,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "노원구",
+        "SGG": "노원구 ",
         "ADDR": "서울특별시 노원구 덕릉로 430 본관 주차장환경센터 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1006,13 +1006,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "노원구",
+        "SGG": "노원구 ",
         "ADDR": "서울특별시 노원구 덕릉로 430 본관 주차장환경센터 주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1022,13 +1022,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉우재로6길 26 중랑초교 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1038,13 +1038,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉우재로6길 26 중랑초교 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1054,13 +1054,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉우재로6길 26 중랑초교 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1070,13 +1070,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 봉우재로6길 26 중랑초교 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1086,13 +1086,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 송림길 160 주차장 입구 좌측입구 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1102,13 +1102,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 송림길 160 주차장 입구 좌측입구 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1118,13 +1118,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 송림길 160 주차장 입구 좌측입구 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1134,13 +1134,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 송림길 160 주차장 입구 좌측입구 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1150,13 +1150,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중랑구",
+        "SGG": "중랑구 ",
         "ADDR": "서울특별시 중랑구 송림길 160 주차장 입구 좌측입구 좌측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1166,13 +1166,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "도봉구",
+        "SGG": "도봉구 ",
         "ADDR": "서울특별시 도봉구 덕릉로59길 63 지상 48-638 구획지상 48-638 구획",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1182,13 +1182,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "도봉구",
+        "SGG": "도봉구 ",
         "ADDR": "서울특별시 도봉구 우이천로4길 24-11 지하지하주차장 램프 밑",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1198,13 +1198,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "도봉구",
+        "SGG": "도봉구 ",
         "ADDR": "서울특별시 도봉구 마들로11길 74 (창동, 창동역공영주차장) 지상1층 진입로 오른쪽 10M",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1214,13 +1214,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "성북구",
+        "SGG": "성북구 ",
         "ADDR": "서울특별시 성북구 동소문로 1 1-4",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1230,13 +1230,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "성북구",
+        "SGG": "성북구 ",
         "ADDR": "서울특별시 성북구 동소문로 1 1-4",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1246,13 +1246,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "강동구",
+        "SGG": "강동구 ",
         "ADDR": "서울특별시 강동구 천호대로 지하997 (천호동, 천호역공영주차장) 지하1층 A37번 기둥지하1층 A35구역",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1262,13 +1262,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 동호로 377 고려상사 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1278,13 +1278,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 동호로 지하384 코리아몰 앞",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1294,13 +1294,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 동호로 378-2 지하상가 입구 인근청계5가 지하쇼핑센터 입구 인근",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1310,13 +1310,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "성동구",
-        "ADDR": "서울특별시 성동구 청계천로 494",
+        "SGG": "성동구 ",
+        "ADDR": "서울특별시 성동구 청계천로 494 ",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1326,13 +1326,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "성동구",
-        "ADDR": "서울특별시 성동구 청계천로 494",
+        "SGG": "성동구 ",
+        "ADDR": "서울특별시 성동구 청계천로 494 ",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1342,13 +1342,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 흥인동 163-1 노상공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1358,13 +1358,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "중구",
+        "SGG": "중구 ",
         "ADDR": "서울특별시 중구 흥인동 163-1 노상공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1374,13 +1374,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "마포구",
+        "SGG": "마포구 ",
         "ADDR": "서울특별시 마포구 동교로 95 유료 19번 구획유료 19",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1390,12 +1390,12 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "공공기관",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 영신로 200 하자센터 신관 입구하자센터 신관 입구",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
+        "CON_PVSN": "",
         "RMRK": "9월 28일 행사로 충전소 사용 불가"
       },
       {
@@ -1406,12 +1406,12 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "공공기관",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 영신로 200 하자센터 신관 입구하자센터 신관 입구",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW동시)",
-        "CON_PVSN": null,
+        "CON_PVSN": "",
         "RMRK": "9월 28일 행사로 충전소 사용 불가"
       },
       {
@@ -1422,13 +1422,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "일반주차장",
         "RGN": "서울특별시",
-        "SGG": "도봉구",
+        "SGG": "도봉구 ",
         "ADDR": "서울특별시 도봉구 덕릉로60길 135-70 공원 계단 입구 인근공원 계단 입구 인근",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1438,13 +1438,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "성북구",
+        "SGG": "성북구 ",
         "ADDR": "서울특별시 성북구 월곡로14길 24 하월곡동 거주자우선주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(100kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1454,13 +1454,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "지자체시설",
         "RGN": "서울특별시",
-        "SGG": "영등포구",
+        "SGG": "영등포구 ",
         "ADDR": "서울특별시 영등포구 영신로 200 지하주차장 진입 후 우측지하주차장 진입 후 우측",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "완속(7kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1470,13 +1470,13 @@
         "FCLT_SE_L": "공공시설",
         "FCLT_SE_S": "주민센터",
         "RGN": "서울특별시",
-        "SGG": "용산구",
+        "SGG": "용산구 ",
         "ADDR": "서울특별시 용산구 이태원로 224-19 한남동 공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(50kW단독)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1486,13 +1486,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1502,13 +1502,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1518,13 +1518,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1534,13 +1534,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1550,13 +1550,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1566,13 +1566,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1582,13 +1582,13 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       },
       {
         "OPER_INST_NM": "서울시",
@@ -1598,14 +1598,15 @@
         "FCLT_SE_L": "주차시설",
         "FCLT_SE_S": "공영주차장",
         "RGN": "서울특별시",
-        "SGG": "양천구",
+        "SGG": "양천구 ",
         "ADDR": "서울특별시 양천구 목동동로 316-6 목동한마음공영주차장",
         "UTZTN_PSBLTY_TM": "24시간 이용가능",
-        "UTZTN_USER_LMT": null,
+        "UTZTN_USER_LMT": "",
         "CHARGING_CAPACITY": "급속(200kW동시)",
-        "CON_PVSN": null,
-        "RMRK": null
+        "CON_PVSN": "",
+        "RMRK": ""
       }
     ]
-  }
+  },
+  "_fetchedAt": "2025-10-26T10:52:19.361Z"
 }
