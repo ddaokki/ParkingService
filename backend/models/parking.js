@@ -1,10 +1,10 @@
 // backend/models/parking.js
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const ParkingSchema = new mongoose.Schema({
+const ParkingSchema = new Schema({
   name: { type: String, required: true },                  // 주차장 이름
   address: { type: String, required: true },               // 주소
-  code: { type: String, required: true },                  // 주차장 코드
+  code: { type: Number, required: true },                  // 주차장 코드
   PKLT_KND: { type: String },                              // 주차장 종류 코드
   PKLT_KND_NM: { type: String },                           // 주차장 종류 이름
   OPER_SE: { type: String },                               // 운영 형태 코드
@@ -39,4 +39,4 @@ const ParkingSchema = new mongoose.Schema({
   lon: { type: Number }                                     // 경도
 });
 
-module.exports = mongoose.model('Parking', ParkingSchema);
+export default model('parking', ParkingSchema, 'parking');

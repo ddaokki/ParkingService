@@ -3,6 +3,6 @@ import { getAllParkings, getParkingById } from "../controllers/parkingController
 const router = express.Router();
 
 router.get("/", getAllParkings);
-router.get("/:id", getParkingById);
+router.get("/:code", getParkingById);
 
 export default router;
