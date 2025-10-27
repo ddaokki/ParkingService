@@ -8,28 +8,34 @@ const reviewSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  // 2. 주차장 ID (Parking 모델의 resourceId)
+  // 2. 주차장 ID ((Parking 또는 EvCharger의 resourceId)
   resourceId: {
     type: String,
     required: true,
     index: true,
   },
-  // 3. 리뷰 텍스트
+  // 3. 리소스 타입 구분
+  resourceType: {
+    type: String,
+    enum: ['parking', 'ev_charger'],
+    required: true,
+  },
+  // 4. 리뷰 텍스트
   text: {
     type: String,
     required: [true, '리뷰 내용을 입력해주세요.'],
     trim: true,
     maxlength: 500,
   },
-  // 4. 별점 (1~5)
+  // 5. 별점 (1~5)
   rating: {
     type: Number,
     min: 1,
     max: 5,
     required: [true, '별점을 선택해주세요.'],
   },
-  // 5. 주차장 이름 (조회 편의용)
-  parkingName: {
+  // 6. [수정] 범영 (조회 편의용)
+  resourceName: {
     type: String,
     required: true,
   }

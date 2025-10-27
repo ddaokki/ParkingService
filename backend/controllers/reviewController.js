@@ -5,13 +5,14 @@ import * as reviewService from '../services/reviewService.js';
 export const addMyReview = async (req, res) => {
   try {
     // req.body에서 userId를 직접 받음
-    const { resourceId, text, rating, userId } = req.body; 
+    const { resourceId, resourceType, text, rating, userId } = req.body; 
 
-    if (!resourceId || !text || !rating || !userId) {
-      return res.status(400).json({ message: 'resourceId, text, rating, userId는 필수입니다.' });
+    if (!resourceId || !resourceType || !text || !rating || !userId) {
+      return res.status(400).json({ message: 'resourceId, resourceType, text, rating, userId는 필수입니다.' });
     }
     
-    const newReview = await reviewService.addReview(userId, resourceId, text, rating);
+    //수정함
+    const newReview = await reviewService.addReview(userId, resourceId, text, rating, resourceType);
     res.status(201).json(newReview);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -40,7 +41,18 @@ export const removeMyReview = async (req, res) => {
 export const getParkingReviews = async (req, res) => {
   try {
     const { resourceId } = req.params;
-    const reviews = await reviewService.getReviewsByResourceId(resourceId);
+    const reviews = await reviewService.getReviewsByResourceId(resourceId, 'parking');
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// 새로작성 GET /api/reviews/evcharger/:resourceId (EV 충전소 리뷰 목록)
+export const getEvChargerReviews = async (req, res) => {
+  try {
+    const { resourceId } = req.params;
+    const reviews = await reviewService.getReviewsByResourceId(resourceId, 'ev_charger');
     res.status(200).json(reviews);
   } catch (error) {
     res.status(500).json({ message: error.message });

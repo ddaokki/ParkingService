@@ -24,7 +24,8 @@ const runUpdatePipeline = async () => {
 };
 
 const startScheduler = () => {
-  cron.schedule('30 6 * * *', async () => {
+  // mm hh dd mm yy ( 설정 시간 포맷 (24시간제) )
+  cron.schedule('27 0 * * *', async () => {
     console.log('⏰ 스케줄 시간 도착! 파이프라인 실행...');
     try {
       await runUpdatePipeline();
@@ -34,6 +35,8 @@ const startScheduler = () => {
   });
 
   console.log('🕒 Cron 스케줄러 설정 완료');
+  console.log('- 설정한 시간에 몽고 db에 업데이트');
+  console.log('- backend/utils/scheduler.js에서 설정 시간 확인');
 };
 
 export default startScheduler;

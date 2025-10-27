@@ -1,5 +1,6 @@
 import { findEvCharger} from "../services/evChargerService.js";
 
+// get /api/evchargers
 export const getAllEvChargers = async (req, res) => {
   try {
     const data = await findEvCharger();

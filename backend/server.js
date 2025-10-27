@@ -35,8 +35,8 @@ app.use("/api/favorites", favoriteRoutes);
 app.use("/api/reviews", reviewRoutes);
 
 // 기존 라우트 연결
-app.use("/api/parkings", parkingRoutes); // 사용자님의 기존 경로
-app.use("/api/evchargers", evChargerRoutes); // 사용자님의 기존 경로
+app.use("/api/parkings", parkingRoutes); // 주차장
+app.use("/api/evchargers", evChargerRoutes); // 전기차 충전소
 
 // 기본 라우트
 app.get('/', (req, res) => {

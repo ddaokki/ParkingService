@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 const EvChargerSchema = new Schema({
-  resourceId: { type: Number, required: true },          // CSV 고유 ID
+  resourceId: { type: String, required: true },          // CSV 고유 ID
   oper_inst_nm: { type: String },                       // 운영 기관명
   charging_station: { type: String, required: true },   // 충전소 이름
   charger_id: { type: String },                         // 충전기 ID

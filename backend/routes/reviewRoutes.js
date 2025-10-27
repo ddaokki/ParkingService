@@ -7,6 +7,9 @@ const router = express.Router();
 // 특정 주차장의 리뷰 목록 보기 (인증 불필요)
 router.get('/parking/:resourceId', reviewController.getParkingReviews);
 
+// [신규] 특정 EV 충전소의 리뷰 목록 보기 (인증 불필요)
+router.get('/evcharger/:resourceId', reviewController.getEvChargerReviews);
+
 // 리뷰 작성 (body에 userId 필요)
 router.post('/', reviewController.addMyReview);
 
