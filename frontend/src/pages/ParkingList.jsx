@@ -5,41 +5,26 @@ import SearchBar from "../components/SearchBar";
 import SortBar from "../components/SortBar";
 import FilterBar from "../components/FilterBar";
 import Modal from "../components/Modal";
-import MapViewVWorld from "../components/MapViewVWorld";
+import MapViewKakao from "../components/MapViewKakao"; // ✅ Kakao 버전으로 교체
 import { distanceMeters, pickLat, pickLon } from "../utils/geo";
 
+// ---- 유틸리티 함수들 그대로 유지 ----
 function isFreeParking(p) {
   const toNum = (v) => (v === null || v === undefined || v === "" ? 0 : Number(v));
   const bf = toNum(p?.basic_fee);
   const af = toNum(p?.add_fee);
   const dmf = toNum(p?.daily_max_fee);
-  return (!bf && !af && !dmf);
+  return !bf && !af && !dmf;
 }
 const parkingName = (p) => (p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "").toString();
 const parkingAddr = (p) => (p?.address ?? p?.ADDR ?? p?.address1 ?? "").toString();
 const parkingCode = (p) => p?._id ?? p?.code ?? p?.PKLT_CD ?? p?.PARKING_CODE ?? p?.resourceId;
 
+// ---- 메인 컴포넌트 ----
 export default function ParkingList() {
   const [all, setAll] = useState([]);
   const [chargers, setChargers] = useState([]);
   const [loading, setLoading] = useState(true);
-<<<<<<< HEAD
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // 컴포넌트 최초 마운트 시 단 한 번만 실행됨
-    const fetchData = async () => {
-      try {
-        const res = await getAllParkings();
-        if (res?.data?.length) {
-          // 서버 전체 데이터 중 상위 5개만 사용
-          setParkings(res.data.slice(0, 5));
-        } else {
-          setParkings([]);
-        }
-      } catch (err) {
-        console.error("데이터 불러오기 실패:", err);
-=======
   const [q, setQ] = useState("");
   const [chargeFilter, setChargeFilter] = useState(null);
   const [sortKey, setSortKey] = useState("nameAsc");
@@ -47,6 +32,7 @@ export default function ParkingList() {
   const [selected, setSelected] = useState(null);
   const [error, setError] = useState("");
 
+  // ---- 데이터 로드 ----
   useEffect(() => {
     const run = async () => {
       setLoading(true);
@@ -60,38 +46,17 @@ export default function ParkingList() {
         setChargers(Array.isArray(evs) ? evs : []);
       } catch (e) {
         console.error(e);
->>>>>>> a1aa543 (프론트엔드 지피티로 만듦)
         setError("데이터를 불러오는 중 오류가 발생했습니다.");
       } finally {
         setLoading(false);
       }
     };
-<<<<<<< HEAD
-
-    fetchData();
-  }, []); // 빈 배열 필수: 최초 한 번만 호출
-
-  // 로딩/에러/데이터 없음 처리
-  if (loading) return <p className="text-center mt-10">불러오는 중입니다...</p>;
-  if (error) return <p className="text-center text-red-600 mt-10">{error}</p>;
-  if (parkings.length === 0) return <p className="text-center mt-10">표시할 주차장 데이터가 없습니다.</p>;
-
-  return (
-    <div className="max-w-4xl mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6 text-center">서울시 주차장 목록 (상위 5개)</h1>
-      <div className="space-y-4">
-        {parkings.map((p, idx) => (
-          <ParkingCard key={p._id || idx} parking={p} />
-        ))}
-      </div>
-=======
     run();
   }, []);
 
-  // EV 반경/타입 집계
+  // ---- EV 반경/타입 매칭 ----
   const EV_RADIUS_M = 150;
   const evTypesByParking = useMemo(() => {
-    // Map<parkingCode, Set<charger_type>>
     const map = new Map();
     chargers.forEach((c) => {
       const clat = pickLat(c), clon = pickLon(c);
@@ -110,6 +75,7 @@ export default function ParkingList() {
     return map;
   }, [chargers, all]);
 
+  // ---- 필터/정렬 ----
   const filtered = useMemo(() => {
     let arr = all;
 
@@ -122,7 +88,6 @@ export default function ParkingList() {
 
     if (chargeFilter === "무료") arr = arr.filter(isFreeParking);
     if (chargeFilter === "유료") arr = arr.filter((p) => !isFreeParking(p));
-
     if (onlyEv) arr = arr.filter((p) => evTypesByParking.has(String(parkingCode(p))));
 
     const getFee = (p) => Number(p?.basic_fee ?? 0) + Number(p?.add_fee ?? 0) + Number(p?.daily_max_fee ?? 0);
@@ -135,11 +100,13 @@ export default function ParkingList() {
     return sorted;
   }, [all, q, chargeFilter, onlyEv, sortKey, evTypesByParking]);
 
+  // ---- 상태 표시 ----
   if (loading) return <div className="p-4">불러오는 중…</div>;
   if (error) return <div className="p-4 text-red-600">{error}</div>;
 
   const selectedId = selected && parkingCode(selected);
 
+  // ---- UI 렌더링 ----
   return (
     <div className="max-w-6xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-3">서울시 주차장</h1>
@@ -148,6 +115,7 @@ export default function ParkingList() {
         <SearchBar value={q} onChange={setQ} />
         <SortBar value={sortKey} onChange={setSortKey} />
       </div>
+
       <FilterBar
         chargeValue={chargeFilter}
         onChargeChange={setChargeFilter}
@@ -155,7 +123,8 @@ export default function ParkingList() {
         onOnlyEvChange={setOnlyEv}
       />
 
-      <MapViewVWorld
+      {/* ✅ Kakao 지도 버전으로 교체 */}
+      <MapViewKakao
         items={filtered.slice(0, 200)}
         selectedId={selectedId}
         onMarkerClick={(p) => setSelected(p)}
@@ -181,20 +150,19 @@ export default function ParkingList() {
 
       <Modal
         open={!!selected}
-        title={selected ? (parkingName(selected) || "주차장 상세") : ""}
+        title={selected ? parkingName(selected) || "주차장 상세" : ""}
         onClose={() => setSelected(null)}
       >
         {selected && (
           <div className="space-y-2 text-sm">
             <div><b>주소:</b> {parkingAddr(selected)}</div>
-            {/* 코드/좌표는 사용자에겐 숨김 요구 → 상세에서도 미표시 */}
             <div>
-              <b>요금:</b> 기본 {Number(selected?.basic_fee ?? 0)} / 추가 {Number(selected?.add_fee ?? 0)} / 일최대 {Number(selected?.daily_max_fee ?? 0)}
+              <b>요금:</b> 기본 {Number(selected?.basic_fee ?? 0)} / 추가 {Number(selected?.add_fee ?? 0)} / 일최대{" "}
+              {Number(selected?.daily_max_fee ?? 0)}
             </div>
           </div>
         )}
       </Modal>
->>>>>>> a1aa543 (프론트엔드 지피티로 만듦)
     </div>
   );
 }
