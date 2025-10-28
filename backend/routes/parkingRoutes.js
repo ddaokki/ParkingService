@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllParkings, getParkingById } from "../controllers/parkingController.js";
+import { getAllParkings, getParkingById, getNearbyParkings } from "../controllers/parkingController.js";
 const router = express.Router();
 
 router.get("/", getAllParkings);
