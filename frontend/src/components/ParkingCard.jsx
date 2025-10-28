@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { getAllParkings } from "../services/api";
-import ParkingCard from "../components/ParkingCard";
+import React from "react";
 
-export default function ParkingList() {
-  const [parkings, setParkings] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getAllParkings()
-      .then((res) => {
-        setParkings(res.data);
-      })
-      .catch((err) => console.error("데이터 불러오기 실패:", err))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <p className="text-center mt-10">불러오는 중...</p>;
+export default function ParkingCard({ parking }) {
+  // 필드 이름이 DB 구조에 따라 다를 수 있으므로 안전하게 처리
+  const {
+    name,
+    PARKING_NAME,
+    address,
+    ADDR,
+    capacity,
+    CAPACITY,
+    tel,
+    TEL
+  } = parking;
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">서울시 주차장 목록</h1>
-      {parkings.map((p) => (
-        <ParkingCard key={p._id || p.PARKING_CODE} parking={p} />
-      ))}
+    <div className="bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg transition">
+      <h2 className="text-lg font-semibold text-gray-800">
+        {name || PARKING_NAME || "이름 없음"}
+      </h2>
+      <p className="text-gray-600">{address || ADDR || "주소 정보 없음"}</p>
+      <div className="mt-2 text-sm text-gray-500">
+        <p>수용 차량 수: {capacity || CAPACITY || "정보 없음"}</p>
+        <p>전화번호: {tel || TEL || "정보 없음"}</p>
+      </div>
     </div>
   );
 }
