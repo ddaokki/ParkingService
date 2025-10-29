@@ -2,20 +2,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { pickLat, pickLon } from "../utils/geo";
 
-export default function MapViewKakao({ items = [], selectedId, onMarkerClick }) {
+export default function MapViewKakao({
+  items = [],
+  selectedId,
+  onMarkerClick,
+  myPos,
+  onMyPosChange,
+}) {
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   const [ready, setReady] = useState(false);
 
-  // Kakao SDK 스크립트 로드
+  // ✅ Kakao SDK 로드
   useEffect(() => {
     const KAKAO_KEY = process.env.REACT_APP_KAKAO_API_KEY;
     if (!KAKAO_KEY) {
-      console.error("⚠️ Kakao API key가 .env에 설정되어 있지 않습니다.");
+      console.error("⚠️ Kakao API key(.env)가 설정되어 있지 않습니다.");
       return;
     }
 
-    // 이미 로드된 경우
     if (window.kakao && window.kakao.maps) {
       setReady(true);
       return;
@@ -35,42 +40,54 @@ export default function MapViewKakao({ items = [], selectedId, onMarkerClick }) 
     };
   }, []);
 
-  // 지도 초기화
+  // ✅ 지도 초기화
   useEffect(() => {
-    if (!ready) return;
-
-    // 초기 중심: 서울시청 or 첫 좌표
-    const first = items.find((x) => pickLat(x) && pickLon(x));
-    const center = new kakao.maps.LatLng(
-      first ? pickLat(first) : 37.5665,
-      first ? pickLon(first) : 126.9780
-    );
+    if (!ready || !myPos) return;
 
     const mapContainer = document.getElementById("kmap");
     if (!mapContainer) return;
 
     const map = new kakao.maps.Map(mapContainer, {
-      center,
+      center: new kakao.maps.LatLng(myPos.lat, myPos.lon),
       level: 5,
     });
-
     mapRef.current = map;
+
+    // ✅ 내 위치 마커 (드래그 가능)
+    const myMarker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(myPos.lat, myPos.lon),
+      draggable: true,
+      title: "내 위치",
+    });
+
+    // 파란색 마커 이미지
+    const blueIcon = new kakao.maps.MarkerImage(
+      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+      new kakao.maps.Size(28, 40)
+    );
+    myMarker.setImage(blueIcon);
+    myMarker.setMap(map);
+
+    // 🔹 드래그 종료 시 이벤트
+    kakao.maps.event.addListener(myMarker, "dragend", function () {
+      const pos = myMarker.getPosition();
+      const newPos = { lat: pos.getLat(), lon: pos.getLng() };
+      onMyPosChange?.(newPos); // 부모로 전달
+    });
 
     return () => {
       mapRef.current = null;
     };
-  }, [ready]);
+  }, [ready, myPos]);
 
-  // 마커 갱신
+  // ✅ 주차장 마커 표시
   useEffect(() => {
     if (!ready || !mapRef.current) return;
-    const map = mapRef.current;
 
-    // 기존 마커 제거
+    const map = mapRef.current;
     markersRef.current.forEach((m) => m.setMap(null));
     markersRef.current = [];
 
-    // 새 마커 추가
     items.forEach((p) => {
       const lat = pickLat(p);
       const lon = pickLon(p);
@@ -93,7 +110,6 @@ export default function MapViewKakao({ items = [], selectedId, onMarkerClick }) 
       });
 
       kakao.maps.event.addListener(marker, "click", () => onMarkerClick?.(p));
-
       markersRef.current.push(marker);
     });
   }, [items, selectedId, ready, onMarkerClick]);
