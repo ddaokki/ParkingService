@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { getAllParkings, getEvChargers } from "../services/api";
+import { getAllParkings, getEvChargers, getFavoritesByUser } from "../services/api";
+import { useAuth } from "../context/AuthContext"; // ✅ 로그인 정보 가져오기
 import ParkingCard from "../components/ParkingCard";
 import SearchBar from "../components/SearchBar";
 import SortBar from "../components/SortBar";
@@ -23,8 +24,12 @@ const parkingCode = (p) =>
   p?._id ?? p?.code ?? p?.PKLT_CD ?? p?.PARKING_CODE ?? p?.resourceId;
 
 export default function ParkingList() {
+  const { user } = useAuth(); // ✅ 로그인 정보 가져오기
+  const uid = user?._id ?? user?.id;
+
   const [all, setAll] = useState([]);
   const [chargers, setChargers] = useState([]);
+  const [favorites, setFavorites] = useState([]); // ✅ 추가
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [chargeFilter, setChargeFilter] = useState(null);
@@ -41,7 +46,7 @@ export default function ParkingList() {
       .catch((err) => console.error("위치 정보를 가져오지 못했습니다:", err));
   }, []);
 
-  // ✅ 데이터 로드
+  // ✅ 데이터 로드 (주차장 + 충전소)
   useEffect(() => {
     const run = async () => {
       setLoading(true);
@@ -62,6 +67,16 @@ export default function ParkingList() {
     };
     run();
   }, []);
+
+  // ✅ 즐겨찾기 불러오기
+  useEffect(() => {
+    if (!uid) return;
+    getFavoritesByUser(uid)
+      .then(({ data }) => {
+        if (Array.isArray(data)) setFavorites(data);
+      })
+      .catch((e) => console.error("즐겨찾기 불러오기 실패:", e));
+  }, [uid]);
 
   const EV_RADIUS_M = 150;
   const evTypesByParking = useMemo(() => {
@@ -151,13 +166,14 @@ export default function ParkingList() {
         onOnlyEvChange={setOnlyEv}
       />
 
-      {/* ✅ 지도 + 내 위치 드래그 가능 */}
+      {/* ✅ 지도 + 내 위치 드래그 가능 + 즐겨찾기 전달 */}
       <MapViewKakao
         items={limited}
         selectedId={selectedId}
         onMarkerClick={(p) => setSelected(p)}
         myPos={myPos}
         onMyPosChange={(pos) => setMyPos(pos)}
+        favorites={favorites} // ✅ 여기서 전달
       />
 
       <div className="mt-4">
@@ -194,7 +210,9 @@ export default function ParkingList() {
               <b>요금:</b>{" "}
               {isFreeParking(selected)
                 ? "무료"
-                : `기본 ${selected.basic_fee ?? 0} / 추가 ${selected.add_fee ?? 0}`}
+                : `기본 ${selected.basic_fee ?? 0}원 / 추가 ${
+                    selected.add_fee ?? 0
+                  }원`}
             </div>
           </div>
         )}

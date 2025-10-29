@@ -8,9 +8,11 @@ export default function MapViewKakao({
   onMarkerClick,
   myPos,
   onMyPosChange,
+  favorites = [],
 }) {
   const mapRef = useRef(null);
   const markersRef = useRef([]);
+  const myMarkerRef = useRef(null);
   const [ready, setReady] = useState(false);
 
   // ✅ Kakao SDK 로드
@@ -40,10 +42,9 @@ export default function MapViewKakao({
     };
   }, []);
 
-  // ✅ 지도 초기화
+  // ✅ 지도 초기화 + 내 위치 마커
   useEffect(() => {
     if (!ready || !myPos) return;
-
     const mapContainer = document.getElementById("kmap");
     if (!mapContainer) return;
 
@@ -53,32 +54,42 @@ export default function MapViewKakao({
     });
     mapRef.current = map;
 
-    // ✅ 내 위치 마커 (드래그 가능)
+    // 🔵 내 위치 마커
+    const blueIcon = new kakao.maps.MarkerImage(
+      "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png",
+      new kakao.maps.Size(32, 32)
+    );
+
     const myMarker = new kakao.maps.Marker({
       position: new kakao.maps.LatLng(myPos.lat, myPos.lon),
       draggable: true,
       title: "내 위치",
+      image: blueIcon,
     });
 
-    // 파란색 마커 이미지
-    const blueIcon = new kakao.maps.MarkerImage(
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-      new kakao.maps.Size(28, 40)
-    );
-    myMarker.setImage(blueIcon);
     myMarker.setMap(map);
+    myMarkerRef.current = myMarker;
 
-    // 🔹 드래그 종료 시 이벤트
-    kakao.maps.event.addListener(myMarker, "dragend", function () {
+    kakao.maps.event.addListener(myMarker, "dragend", () => {
       const pos = myMarker.getPosition();
-      const newPos = { lat: pos.getLat(), lon: pos.getLng() };
-      onMyPosChange?.(newPos); // 부모로 전달
+      onMyPosChange?.({ lat: pos.getLat(), lon: pos.getLng() });
     });
 
     return () => {
       mapRef.current = null;
+      myMarkerRef.current = null;
     };
   }, [ready, myPos]);
+
+  // ✅ 내 위치 이동 반영
+  useEffect(() => {
+    if (myMarkerRef.current && myPos) {
+      myMarkerRef.current.setPosition(new kakao.maps.LatLng(myPos.lat, myPos.lon));
+    }
+  }, [myPos]);
+
+  // ✅ 즐겨찾기 ID 집합 (문자열 기준)
+  const favSet = new Set(favorites.map((f) => String(f.resourceId)));
 
   // ✅ 주차장 마커 표시
   useEffect(() => {
@@ -93,26 +104,30 @@ export default function MapViewKakao({
       const lon = pickLon(p);
       if (!lat || !lon) return;
 
-      const isSelected =
-        selectedId && (selectedId === (p._id ?? p.code ?? p.PARKING_CODE ?? p.resourceId));
+      const pid = String(
+        p._id ?? p.code ?? p.PKLT_CD ?? p.PARKING_CODE ?? p.resourceId
+      );
 
-      const iconSrc = isSelected
-        ? "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"
-        : "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png";
+      const isFavorite = favSet.has(pid);
+      const isSelected = selectedId === pid;
 
-      const markerImage = new kakao.maps.MarkerImage(iconSrc, new kakao.maps.Size(32, 32));
+      let iconSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png";
+      if (isFavorite)
+        iconSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+      else if (isSelected)
+        iconSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
       const marker = new kakao.maps.Marker({
         map,
         position: new kakao.maps.LatLng(lat, lon),
         title: p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "주차장",
-        image: markerImage,
+        image: new kakao.maps.MarkerImage(iconSrc, new kakao.maps.Size(32, 32)),
       });
 
       kakao.maps.event.addListener(marker, "click", () => onMarkerClick?.(p));
       markersRef.current.push(marker);
     });
-  }, [items, selectedId, ready, onMarkerClick]);
+  }, [ready, items, selectedId, favorites]); // favorites 의존성 포함
 
   return (
     <div className="w-full h-80 md:h-[420px] rounded-lg border overflow-hidden">
