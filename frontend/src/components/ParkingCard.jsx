@@ -16,7 +16,7 @@ export default function ParkingCard({ parking, onOpen, showEvTypes = false, evTy
         <p className="text-sm text-gray-600 truncate">{address}</p>
         {/* 코드/좌표는 사용자 노출 X (요구사항) */}
         <div className="text-xs text-gray-700 mt-1">
-          기본요금: {basicFee || 0}원 / 추가요금: {addFee || 0}원 / 일최대: {dailyMax || 0}원
+          기본요금: {basicFee || 0}원 / 추가요금: {addFee || 0}원
         </div>
 
         {/* EV 가능 필터가 켜진 경우에만 타입 노출 */}
