@@ -16,9 +16,13 @@ function isFreeParking(p) {
   const dmf = toNum(p?.daily_max_fee);
   return !bf && !af && !dmf;
 }
-const parkingName = (p) => (p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "").toString();
-const parkingAddr = (p) => (p?.address ?? p?.ADDR ?? p?.address1 ?? "").toString();
-const parkingCode = (p) => p?._id ?? p?.code ?? p?.PKLT_CD ?? p?.PARKING_CODE ?? p?.resourceId;
+
+const parkingName = (p) =>
+  (p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "").toString();
+const parkingAddr = (p) =>
+  (p?.address ?? p?.ADDR ?? p?.address1 ?? "").toString();
+const parkingCode = (p) =>
+  p?._id ?? p?.code ?? p?.PKLT_CD ?? p?.PARKING_CODE ?? p?.resourceId;
 
 export default function ParkingList() {
   const [all, setAll] = useState([]);
@@ -26,7 +30,7 @@ export default function ParkingList() {
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [chargeFilter, setChargeFilter] = useState(null);
-  const [sortKey, setSortKey] = useState("nameAsc");
+  const [sortKey, setSortKey] = useState("feeAsc");
   const [onlyEv, setOnlyEv] = useState(false);
   const [selected, setSelected] = useState(null);
   const [error, setError] = useState("");
@@ -85,6 +89,8 @@ export default function ParkingList() {
 
   // 🔹 필터 및 정렬
   const filtered = useMemo(() => {
+    if (!myPos) return [];
+
     let arr = all;
 
     if (q.trim()) {
@@ -100,29 +106,27 @@ export default function ParkingList() {
     if (chargeFilter === "유료") arr = arr.filter((p) => !isFreeParking(p));
     if (onlyEv) arr = arr.filter((p) => evTypesByParking.has(String(parkingCode(p))));
 
-    // 🔸 위치 필터링 (조건이 전혀 없을 때만)
-    if (!q && !chargeFilter && !onlyEv && myPos) {
-      arr = arr.filter((p) => {
-        const lat = pickLat(p),
-          lon = pickLon(p);
-        if (!lat || !lon) return false;
-        return distanceMeters(myPos.lat, myPos.lon, lat, lon) <= 1000;
-      });
-    }
+    // ✅ 항상 현재 위치 기반 반경 필터 유지 (1km)
+    arr = arr.filter((p) => {
+      const lat = pickLat(p),
+        lon = pickLon(p);
+      if (!lat || !lon) return false;
+      return distanceMeters(myPos.lat, myPos.lon, lat, lon) <= 1000;
+    });
 
-    // 🔸 정렬
-    const getFee = (p) =>
-      Number(p?.basic_fee ?? 0) +
-      Number(p?.add_fee ?? 0) +
-      Number(p?.daily_max_fee ?? 0);
-
+    // ✅ 정렬 방식 수정
     const sorted = [...arr];
-    if (sortKey === "nameAsc")
-      sorted.sort((a, b) => parkingName(a).localeCompare(parkingName(b)));
-    if (sortKey === "nameDesc")
-      sorted.sort((a, b) => parkingName(b).localeCompare(parkingName(a)));
-    if (sortKey === "feeAsc") sorted.sort((a, b) => getFee(a) - getFee(b));
-    if (sortKey === "feeDesc") sorted.sort((a, b) => getFee(b) - getFee(a));
+    if (sortKey === "feeAsc") {
+      sorted.sort((a, b) => Number(a.basic_fee ?? 0) - Number(b.basic_fee ?? 0));
+    } else if (sortKey === "distanceAsc") {
+      sorted.sort((a, b) => {
+        const distA = distanceMeters(myPos.lat, myPos.lon, pickLat(a), pickLon(a));
+        const distB = distanceMeters(myPos.lat, myPos.lon, pickLat(b), pickLon(b));
+        return distA - distB;
+      });
+    } else if (sortKey === "addFeeAsc") {
+      sorted.sort((a, b) => Number(a.add_fee ?? 0) - Number(b.add_fee ?? 0));
+    }
 
     return sorted;
   }, [all, q, chargeFilter, onlyEv, sortKey, evTypesByParking, myPos]);
@@ -130,7 +134,7 @@ export default function ParkingList() {
   if (loading) return <div className="p-4">불러오는 중…</div>;
   if (error) return <div className="p-4 text-red-600">{error}</div>;
 
-  const limited = filtered.slice(0, 10); // ✅ 최대 10개로 제한
+  const limited = filtered.slice(0, 10);
   const selectedId = selected && parkingCode(selected);
 
   return (
@@ -139,7 +143,16 @@ export default function ParkingList() {
 
       <div className="grid md:grid-cols-2 gap-4">
         <SearchBar value={q} onChange={setQ} />
-        <SortBar value={sortKey} onChange={setSortKey} />
+        {/* 🔸 정렬 바 옵션 변경 */}
+        <SortBar
+          value={sortKey}
+          onChange={setSortKey}
+          options={[
+            { value: "feeAsc", label: "기본요금 낮은순" },
+            { value: "distanceAsc", label: "거리 가까운순" },
+            { value: "addFeeAsc", label: "추가요금 낮은순" },
+          ]}
+        />
       </div>
 
       <FilterBar
@@ -149,7 +162,6 @@ export default function ParkingList() {
         onOnlyEvChange={setOnlyEv}
       />
 
-      {/* ✅ 조건에 맞는 모든 주차장에 마커 표시, 최대 10개만 표시 */}
       <MapViewKakao
         items={limited}
         selectedId={selectedId}
@@ -161,6 +173,10 @@ export default function ParkingList() {
           const pid = String(parkingCode(p));
           const types = evTypesByParking.get(pid);
           const evTypeList = types ? Array.from(types) : [];
+
+          const basicFee = Number(p?.basic_fee ?? 0);
+          const addFee = Number(p?.add_fee ?? 0);
+
           return (
             <ParkingCard
               key={pid}
@@ -168,6 +184,10 @@ export default function ParkingList() {
               onOpen={() => setSelected(p)}
               showEvTypes={onlyEv}
               evTypes={evTypeList}
+              // ✅ 무료 표시 적용
+              customFeeDisplay={`기본요금: ${basicFee === 0 ? "무료" : basicFee} / 추가요금: ${
+                addFee === 0 ? "무료" : addFee
+              }`}
             />
           );
         })}
@@ -187,9 +207,15 @@ export default function ParkingList() {
               <b>주소:</b> {parkingAddr(selected)}
             </div>
             <div>
-              <b>요금:</b> 기본 {Number(selected?.basic_fee ?? 0)} / 추가{" "}
-              {Number(selected?.add_fee ?? 0)} / 일최대{" "}
-              {Number(selected?.daily_max_fee ?? 0)}
+              <b>요금:</b>{" "}
+              기본{" "}
+              {Number(selected?.basic_fee ?? 0) === 0
+                ? "무료"
+                : Number(selected?.basic_fee ?? 0)}{" "}
+              / 추가{" "}
+              {Number(selected?.add_fee ?? 0) === 0
+                ? "무료"
+                : Number(selected?.add_fee ?? 0)}
             </div>
           </div>
         )}
