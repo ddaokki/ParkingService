@@ -11,7 +11,7 @@ function Nav() {
   const { user } = useAuth();
   return (
     <nav className="flex items-center gap-4 p-3 border-b">
-      <Link to="/" className="font-semibold">주차장 정보</Link>
+      <Link to="/" className="font-semibold">자리차지</Link>
       <span className="flex-1" />
       {user ? (
         <Link to="/profile" className="text-sm">{user.username || "내 프로필"}</Link>
