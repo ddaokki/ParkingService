@@ -4,15 +4,26 @@ import * as reviewService from '../services/reviewService.js';
 // POST /api/reviews
 export const addMyReview = async (req, res) => {
   try {
-    // req.body에서 userId를 직접 받음
-    const { resourceId, resourceType, text, rating, userId } = req.body; 
-
-    if (!resourceId || !resourceType || !text || !rating || !userId) {
-      return res.status(400).json({ message: 'resourceId, resourceType, text, rating, userId는 필수입니다.' });
+    const tokenUserId = req.user?.id;
+    if (!tokenUserId) {
+      return res.status(401).json({ message: '인증 정보가 없습니다.' });
     }
-    
-    //수정함
-    const newReview = await reviewService.addReview(userId, resourceId, text, rating, resourceType);
+
+    const { resourceId, resourceType, text, rating } = req.body;
+
+    if (!resourceId || !resourceType || !text || !rating) {
+      return res.status(400).json({
+        message: 'resourceId, resourceType, text, rating는 필수입니다.',
+      });
+    }
+
+    const newReview = await reviewService.addReview(
+      tokenUserId,
+      resourceId,
+      text,
+      rating,
+      resourceType
+    );
     res.status(201).json(newReview);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -22,15 +33,14 @@ export const addMyReview = async (req, res) => {
 // DELETE /api/reviews/:id
 export const removeMyReview = async (req, res) => {
   try {
-    const { id: reviewId } = req.params; // 리뷰 문서의 _id
-    
-    // req.body에서 userId를 직접 받음 (소유권 확인용)
-    const { userId } = req.body; 
-    if (!userId) {
-      return res.status(400).json({ message: 'userId가 필요합니다.' });
+    const tokenUserId = req.user?.id;
+    if (!tokenUserId) {
+      return res.status(401).json({ message: '인증 정보가 없습니다.' });
     }
 
-    await reviewService.removeReview(userId, reviewId);
+    const { id: reviewId } = req.params; // 리뷰 문서의 _id
+
+    await reviewService.removeReview(tokenUserId, reviewId);
     res.status(200).json({ message: '리뷰가 삭제되었습니다.' });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -41,18 +51,24 @@ export const removeMyReview = async (req, res) => {
 export const getParkingReviews = async (req, res) => {
   try {
     const { resourceId } = req.params;
-    const reviews = await reviewService.getReviewsByResourceId(resourceId, 'parking');
+    const reviews = await reviewService.getReviewsByResourceId(
+      resourceId,
+      'parking'
+    );
     res.status(200).json(reviews);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// 새로작성 GET /api/reviews/evcharger/:resourceId (EV 충전소 리뷰 목록)
+// GET /api/reviews/evcharger/:resourceId (인증 불필요)
 export const getEvChargerReviews = async (req, res) => {
   try {
     const { resourceId } = req.params;
-    const reviews = await reviewService.getReviewsByResourceId(resourceId, 'ev_charger');
+    const reviews = await reviewService.getReviewsByResourceId(
+      resourceId,
+      'ev_charger'
+    );
     res.status(200).json(reviews);
   } catch (error) {
     res.status(500).json({ message: error.message });
