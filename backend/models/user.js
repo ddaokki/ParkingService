@@ -23,8 +23,6 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   return this.password === candidatePassword;
 };
 
-// [수정] 인덱스 필드명
-userSchema.index({ username: 1 }); // 'email' -> 'username'
 
 const User = mongoose.model('User', userSchema);
 export default User;
