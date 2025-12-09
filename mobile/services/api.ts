@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ★ RN용 BASE_URL 설정 (AWS로 옮기면 이 부분만 수정)
-const BASE_URL = "http://192.168.234.231:4000/api";  // ← 본인 PC IP로 변경
+const BASE_URL = "https://kyevhp3ds7.execute-api.ap-northeast-2.amazonaws.com/api";
 
 // Axios instance
 const api = axios.create({

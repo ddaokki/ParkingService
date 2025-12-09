@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:8080/api",
+  baseURL: process.env.REACT_APP_API_BASE_URL || "https://kyevhp3ds7.execute-api.ap-northeast-2.amazonaws.com/api",
   timeout: 15000,
 });
 
