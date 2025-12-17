@@ -1,29 +1,106 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import { Link } from "expo-router";
 
-export default function ParkingCard({ item, isFavorite, onToggleFavorite }: any) {
-    return (
-        <View className="border rounded-lg p-4 mb-3 bg-white">
-            <View className="flex-row justify-between">
-                <Text className="text-lg font-semibold">{item.name}</Text>
+type Props = {
+  item: any;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
+  onPressDetail: () => void;
+};
 
-                <Text
-                    onPress={onToggleFavorite}
-                    className="text-xl"
-                >
-                    {isFavorite ? "★" : "☆"}
-                </Text>
-            </View>
+export default function ParkingCard({
+  item,
+  isFavorite,
+  onToggleFavorite,
+  onPressDetail,
+}: Props) {
+  const title = item?.name ?? item?.PKLT_NM ?? item?.PARKING_NAME ?? "주차장";
+  const addr =
+    item?.addr ??
+    item?.address ??
+    item?.ADDR ??
+    item?.PKLT_ADDR ??
+    item?.PARKING_ADDR ??
+    "";
 
-            <Text className="text-gray-600">{item.address || "주소 정보 없음"}</Text>
+  const baseFee =
+    item?.baseFee ??
+    item?.BASIC_CHARGE ??
+    item?.PKLT_BSC_CHRG ??
+    item?.basicFee;
+  const addFee =
+    item?.addFee ?? item?.ADD_CHARGE ?? item?.PKLT_ADD_CHRG ?? item?.addFee;
 
-            <Link
-                href={`./app/parking/${item.resourceId}`}
-                className="text-blue-600 mt-2"
-            >
-                상세 보기 →
-            </Link>
-        </View>
-    );
+  return (
+    <View
+      style={{
+        borderWidth: 1,
+        borderColor: "#e5e7eb",
+        borderRadius: 12,
+        padding: 14,
+        marginBottom: 12,
+        backgroundColor: "white",
+      }}
+    >
+      {/* 제목 + 즐겨찾기 */}
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 12,
+        }}
+      >
+        <Text style={{ fontSize: 16, fontWeight: "700", flex: 1 }}>
+          {title}
+        </Text>
+
+        <Pressable
+          hitSlop={12}
+          onPress={onToggleFavorite}
+          style={{
+            paddingHorizontal: 10,
+            paddingVertical: 6,
+            borderWidth: 1,
+            borderColor: "#e5e7eb",
+            borderRadius: 10,
+          }}
+        >
+          <Text style={{ fontSize: 12 }}>
+            {isFavorite ? "★ 즐겨찾기" : "☆ 즐겨찾기"}
+          </Text>
+        </Pressable>
+      </View>
+
+      {/* 주소 */}
+      {!!addr && (
+        <Text style={{ marginTop: 8, color: "#374151", fontSize: 13 }}>
+          {addr}
+        </Text>
+      )}
+
+      {/* 요금 */}
+      <Text style={{ marginTop: 6, color: "#6b7280", fontSize: 12 }}>
+        {baseFee != null ? `기본요금: ${baseFee}` : "기본요금: -"}{" "}
+        {addFee != null ? `/ 추가요금: ${addFee}` : ""}
+      </Text>
+
+      {/* 상세보기 */}
+      <Pressable
+        onPress={onPressDetail}
+        hitSlop={12}
+        style={{
+          marginTop: 10,
+          alignSelf: "flex-start",
+          paddingHorizontal: 12,
+          paddingVertical: 8,
+          borderWidth: 1,
+          borderColor: "#e5e7eb",
+          borderRadius: 10,
+        }}
+      >
+        <Text style={{ fontSize: 12 }}>상세보기 →</Text>
+      </Pressable>
+    </View>
+  );
 }
