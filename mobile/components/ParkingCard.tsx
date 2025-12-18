@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   title: { fontSize: 18, fontWeight: "800", color: "#111827" },
   addr: { marginTop: 6, fontSize: 13, color: "#4b5563" },
-  fee: { marginTop: 10, fontSize: 14, fontWeight: "700", color: "#111827" },
+  fee: { marginTop: 10, fontSize: 11, fontWeight: "700", color: "#111827" },
 
   badge: {
     paddingHorizontal: 12,
