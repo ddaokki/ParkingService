@@ -10,15 +10,6 @@ const api = axios.create({
   timeout: 20000,
 });
 
-// ---- 디버그 유틸 ----
-const mask = (obj: any) => {
-  if (!obj || typeof obj !== "object") return obj;
-  const cloned = JSON.parse(JSON.stringify(obj));
-  if ("password" in cloned) cloned.password = "***";
-  if ("Authorization" in cloned) cloned.Authorization = "***";
-  return cloned;
-};
-
 api.interceptors.request.use(
   async (config) => {
     const token = await AsyncStorage.getItem("accessToken");
@@ -32,18 +23,11 @@ api.interceptors.request.use(
     console.log(
       `[REQ] ${method} ${url} ${token ? "(with token)" : "(no token)"}`
     );
-    if (config.params) console.log("[REQ params]", mask(config.params));
-    //if (config.data) console.log("[REQ body]", mask(config.data));
-    if (config.headers) {
-      const h: any = { ...config.headers };
-      if (h.Authorization) h.Authorization = "***";
-      console.log("[REQ headers]", h);
-    }
 
     return config;
   },
   (err) => {
-    console.log("[REQ interceptor error]", err);
+    console.log("[REQ ERROR]", err.message);
     return Promise.reject(err);
   }
 );

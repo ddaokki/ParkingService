@@ -50,7 +50,7 @@ export default function KakaoMap({
       ${
         myPos
           ? `
-      var myImageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_blue.png";
+      var myImageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
       var myImageSize = new kakao.maps.Size(24, 35);
       var myMarkerImage = new kakao.maps.MarkerImage(myImageSrc, myImageSize);
 
