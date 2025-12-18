@@ -57,34 +57,35 @@ export default function AuthProvider({
     username: string;
     password: string;
   }) => {
-    setLoading(true);
     try {
+      setLoading(true);
+
       const res = await login(payload);
+      const token = res.data?.token;
+      const user = res.data?.user;
 
-      const token =
-        res.data?.accessToken ??
-        res.data?.token ??
-        res.data?.jwt ??
-        res.data?.data?.accessToken;
+      console.log("[Auth] login res.data =", res.data);
 
-      const u =
-        res.data?.user ?? res.data?.data?.user ?? res.data?.profile ?? null;
+      if (!token || !user) {
+        console.log("[Auth] login missing token/user");
+        return false;
+      }
 
-      if (!token || !u?._id) return false;
-
+      // ★ api.ts 인터셉터가 accessToken을 읽으므로 키를 맞춰 저장해야 합니다.
       await AsyncStorage.setItem("accessToken", token);
-      await AsyncStorage.setItem("user", JSON.stringify(u));
-      setUser(u);
+      await AsyncStorage.setItem("user", JSON.stringify(user));
 
-      // console.log("[Auth] login ok", { hasToken: true, userId: u._id });
+      setUser(user);
+
+      console.log("[Auth] login ok");
       return true;
     } catch (e) {
+      console.log("[Auth] login failed", e);
       return false;
     } finally {
       setLoading(false);
     }
   };
-
   const handleRegister = async (payload: {
     username: string;
     password: string;

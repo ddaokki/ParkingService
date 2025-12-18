@@ -1,5 +1,5 @@
 // services/api.ts
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const BASE_URL =
@@ -10,24 +10,69 @@ const api = axios.create({
   timeout: 20000,
 });
 
-api.interceptors.request.use(async (config) => {
-  const token = await AsyncStorage.getItem("accessToken");
-  config.headers = config.headers ?? {};
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+// ---- 디버그 유틸 ----
+const mask = (obj: any) => {
+  if (!obj || typeof obj !== "object") return obj;
+  const cloned = JSON.parse(JSON.stringify(obj));
+  if ("password" in cloned) cloned.password = "***";
+  if ("Authorization" in cloned) cloned.Authorization = "***";
+  return cloned;
+};
 
-  // 디버그
-  // console.log("[REQ]", config.method?.toUpperCase(), config.baseURL + config.url, token ? "(with token)" : "(no token)");
-  return config;
-});
+api.interceptors.request.use(
+  async (config) => {
+    const token = await AsyncStorage.getItem("accessToken");
 
-api.interceptors.response.use(
-  (res) => res,
-  async (err) => {
-    // console.log("[ERR]", err?.response?.status, err?.config?.url, err?.response?.data);
+    config.headers = config.headers ?? {};
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+
+    const method = (config.method || "GET").toUpperCase();
+    const url = (config.baseURL || "") + (config.url || "");
+
+    console.log(
+      `[REQ] ${method} ${url} ${token ? "(with token)" : "(no token)"}`
+    );
+    if (config.params) console.log("[REQ params]", mask(config.params));
+    //if (config.data) console.log("[REQ body]", mask(config.data));
+    if (config.headers) {
+      const h: any = { ...config.headers };
+      if (h.Authorization) h.Authorization = "***";
+      console.log("[REQ headers]", h);
+    }
+
+    return config;
+  },
+  (err) => {
+    console.log("[REQ interceptor error]", err);
     return Promise.reject(err);
   }
 );
 
+api.interceptors.response.use(
+  (res) => {
+    const url = (res.config.baseURL || "") + (res.config.url || "");
+
+    // 데이터는 찍지 않고, 배열이면 개수만 표시
+    if (Array.isArray(res.data)) {
+      console.log(`[RES] ${res.status} ${url} (items: ${res.data.length})`);
+    } else {
+      console.log(`[RES] ${res.status} ${url}`);
+    }
+
+    return res;
+  },
+  async (err: AxiosError<any>) => {
+    const status = err.response?.status;
+    const url = (err.config?.baseURL || "") + (err.config?.url || "");
+
+    console.log(`[ERR] ${status ?? "NO_STATUS"} ${url}`);
+    console.log("[ERR message]", err.message);
+
+    return Promise.reject(err);
+  }
+);
+
+// ---- API 함수들 ----
 export const getAllParkings = () => api.get("/parkings");
 
 // Auth
@@ -50,9 +95,6 @@ export const addFavorite = (params: {
   resourceType: "parking" | "evcharger";
 }) => api.post("/favorites", params);
 
-/**
- * 백엔드가 DELETE /favorites/:id 에서 userId를 body로 요구하는 형태로 보이므로 그대로 유지
- */
 export const removeFavorite = (params: {
   favoriteId: string;
   userId: string;
