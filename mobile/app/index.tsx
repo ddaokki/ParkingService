@@ -1,3 +1,4 @@
+// app/(tabs)/index.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import {
   View,
@@ -6,199 +7,31 @@ import {
   ActivityIndicator,
   TextInput,
   Alert,
+  Switch,
   Pressable,
-  Modal,
+  StyleSheet,
 } from "react-native";
-
 import {
   getAllParkings,
   getFavoritesByUser,
   addFavorite,
   removeFavorite,
 } from "../services/api";
-
-import ParkingCard from "../components/ParkingCard";
 import { useAuth } from "../context/AuthContext";
-
+import KakaoMap from "../components/KakaoMap";
+import ParkingCard from "../components/ParkingCard";
 import { getDistance, getValidLatLon } from "../utils/geo";
 import { getMyLocation } from "../utils/getLocation";
-import KakaoMap from "../components/KakaoMap";
+import {
+  getPid,
+  getName,
+  getBaseFee,
+  getAddFee,
+  getPayType,
+  hasEv,
+} from "../utils/parking";
 
 type SortOption = "distance" | "baseFee" | "addFee";
-type FeeFilter = "all" | "free" | "paid";
-
-function toNumberLike(v: any): number | null {
-  if (v === null || v === undefined) return null;
-  if (typeof v === "number" && Number.isFinite(v)) return v;
-  const s = String(v).replace(/,/g, "");
-  const m = s.match(/-?\d+(\.\d+)?/);
-  if (!m) return null;
-  const n = Number(m[0]);
-  return Number.isFinite(n) ? n : null;
-}
-
-function pickFirstNumber(obj: any, keys: string[]): number | null {
-  for (const k of keys) {
-    const n = toNumberLike(obj?.[k]);
-    if (n !== null) return n;
-  }
-  return null;
-}
-
-// ✅ 기본요금/추가요금 추출(필드명이 달라도 최대한 잡아주기)
-function getFees(p: any): { baseFee: number | null; addFee: number | null } {
-  const baseFee = pickFirstNumber(p, [
-    "baseFee",
-    "basicFee",
-    "basic_fee",
-    "BASIC_FEE",
-    "BAS_FEE",
-    "BAS_CHARGE",
-    "BASIC_CHARGE",
-    "PKLT_BASE_FEE",
-    "PKLT_BAS_FEE",
-    "PARKING_BASE_FEE",
-    "DEFAULT_FEE",
-    "기본요금",
-    "basicCharge",
-  ]);
-
-  const addFee = pickFirstNumber(p, [
-    "addFee",
-    "extraFee",
-    "additionalFee",
-    "add_fee",
-    "ADD_FEE",
-    "EXTRA_FEE",
-    "ADD_CHARGE",
-    "ADDITIONAL_CHARGE",
-    "PKLT_ADD_FEE",
-    "PKLT_EXTRA_FEE",
-    "PARKING_ADD_FEE",
-    "추가요금",
-  ]);
-
-  return { baseFee, addFee };
-}
-
-// ✅ 무료/유료 판단(기본요금이 0이면 무료로 처리)
-function isFreeParking(p: any): boolean {
-  const { baseFee } = getFees(p);
-  if (baseFee === null) return false;
-  return baseFee <= 0;
-}
-
-// ✅ 전기차 충전 가능 판단(필드명/값 케이스 다양하게)
-function isEvCapable(p: any): boolean {
-  const candidates = [
-    p?.evAvailable,
-    p?.EV_AVAILABLE,
-    p?.EV_CHARGE_AVAILABLE,
-    p?.EV_CHARGER_YN,
-    p?.CHARGER_YN,
-    p?.EV_YN,
-    p?.isEv,
-    p?.hasEv,
-    p?.ev,
-    p?.chargeable,
-    p?.EV_CNT,
-    p?.chargerCount,
-  ];
-
-  for (const v of candidates) {
-    if (v === true) return true;
-    if (typeof v === "number" && v > 0) return true;
-    const s = String(v ?? "")
-      .trim()
-      .toLowerCase();
-    if (s === "y" || s === "yes" || s === "true" || s === "1") return true;
-  }
-  return false;
-}
-
-// ✅ 간단 드롭다운(Modal) 컴포넌트
-function SelectModal<T extends string>({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string;
-  value: T;
-  options: { label: string; value: T }[];
-  onChange: (v: T) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const currentLabel = options.find((o) => o.value === value)?.label ?? "";
-
-  return (
-    <>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-        <Text style={{ fontSize: 14 }}>{label}</Text>
-        <Pressable
-          onPress={() => setOpen(true)}
-          style={{
-            paddingHorizontal: 12,
-            paddingVertical: 10,
-            borderRadius: 12,
-            borderWidth: 1,
-            borderColor: "#e5e7eb",
-            backgroundColor: "white",
-            minWidth: 160,
-          }}
-        >
-          <Text style={{ fontSize: 14 }}>{currentLabel} ▾</Text>
-        </Pressable>
-      </View>
-
-      <Modal visible={open} transparent animationType="fade">
-        <Pressable
-          onPress={() => setOpen(false)}
-          style={{
-            flex: 1,
-            backgroundColor: "rgba(0,0,0,0.35)",
-            padding: 16,
-            justifyContent: "center",
-          }}
-        >
-          <Pressable
-            onPress={() => {}}
-            style={{
-              backgroundColor: "white",
-              borderRadius: 14,
-              paddingVertical: 10,
-              overflow: "hidden",
-            }}
-          >
-            {options.map((o) => {
-              const active = o.value === value;
-              return (
-                <Pressable
-                  key={o.value}
-                  onPress={() => {
-                    onChange(o.value);
-                    setOpen(false);
-                  }}
-                  style={{
-                    paddingVertical: 14,
-                    paddingHorizontal: 16,
-                    backgroundColor: active ? "#3b82f6" : "white",
-                  }}
-                >
-                  <Text
-                    style={{ color: active ? "white" : "black", fontSize: 15 }}
-                  >
-                    {o.label}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </Pressable>
-        </Pressable>
-      </Modal>
-    </>
-  );
-}
 
 export default function ParkingList() {
   const { user } = useAuth();
@@ -210,45 +43,40 @@ export default function ParkingList() {
   const [myPos, setMyPos] = useState<{ lat: number; lon: number } | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // ✅ 기본 정렬 = 거리 가까운 순
+  // ✅ 기본=거리 가까운순
   const [sortOption, setSortOption] = useState<SortOption>("distance");
 
-  // ✅ 요금 필터: 전체/무료/유료
-  const [feeFilter, setFeeFilter] = useState<FeeFilter>("all");
+  // ✅ 무료/유료/전체
+  const [payFilter, setPayFilter] = useState<"all" | "free" | "paid">("all");
 
-  // ✅ 전기차 충전 가능 필터
-  const [onlyEv, setOnlyEv] = useState(false);
+  // ✅ 전기차 충전 가능만
+  const [evOnly, setEvOnly] = useState(false);
 
-  const RADIUS = 1000;
-  const [radiusFilter, setRadiusFilter] = useState(false);
+  // ✅ “정렬은 1km 이내에서만”을 강제하기 위한 상수
+  const RADIUS_FOR_SORT = 1000;
 
-  const getPid = (p: any) =>
-    String(
-      p?._id ??
-        p?.id ??
-        p?.code ??
-        p?.PKLT_CD ??
-        p?.PARKING_CODE ??
-        p?.resourceId
-    );
-
-  // 위치(실패해도 앱 동작)
+  // 1) 내 위치
   useEffect(() => {
     let alive = true;
     (async () => {
       try {
         const loc = await getMyLocation();
         if (alive && loc) setMyPos(loc);
-      } catch (e) {
-        console.log("[getMyLocation error]", e);
-      }
+      } catch (e) {}
     })();
     return () => {
       alive = false;
     };
   }, []);
 
-  // 데이터 로딩
+  // 2) 주차장 + 즐겨찾기
+  const refetchFavorites = async (uid: string) => {
+    const fav = await getFavoritesByUser(uid);
+    // 백엔드 응답 형태가 {favorites: []} 또는 [] 등일 수 있어 방어
+    const list = fav.data?.favorites ?? fav.data ?? [];
+    setFavorites(Array.isArray(list) ? list : []);
+  };
+
   useEffect(() => {
     let alive = true;
     (async () => {
@@ -260,22 +88,16 @@ export default function ParkingList() {
 
         if (user?._id) {
           try {
-            const fav = await getFavoritesByUser(user._id);
-            if (!alive) return;
-            setFavorites(fav.data?.favorites || []);
+            await refetchFavorites(user._id);
           } catch (e) {
-            console.log("[Favorites] fetch failed:", e);
-            if (!alive) return;
             setFavorites([]);
           }
         } else {
           setFavorites([]);
         }
       } catch (e) {
-        console.log("[INIT error]", e);
       } finally {
-        if (!alive) return;
-        setLoading(false);
+        if (alive) setLoading(false);
       }
     })();
     return () => {
@@ -283,56 +105,53 @@ export default function ParkingList() {
     };
   }, [user?._id]);
 
+  // 즐겨찾기 집합
   const favIds = useMemo(
     () => new Set(favorites.map((f) => String(f.resourceId))),
     [favorites]
   );
 
   // 검색
-  const filteredBySearch = useMemo(() => {
+  const searched = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return parkings;
-
-    return parkings.filter((p) =>
-      String(p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "")
-        .toLowerCase()
-        .includes(q)
-    );
+    return parkings.filter((p) => getName(p).toLowerCase().includes(q));
   }, [parkings, search]);
 
-  // 요금(무료/유료) 필터
-  const filteredByFee = useMemo(() => {
-    if (feeFilter === "all") return filteredBySearch;
-    if (feeFilter === "free")
-      return filteredBySearch.filter((p) => isFreeParking(p));
-    return filteredBySearch.filter((p) => !isFreeParking(p));
-  }, [filteredBySearch, feeFilter]);
+  // 무료/유료 필터
+  const payFiltered = useMemo(() => {
+    if (payFilter === "all") return searched;
+    return searched.filter((p) => getPayType(p) === payFilter);
+  }, [searched, payFilter]);
 
   // EV 필터
-  const filteredByEv = useMemo(() => {
-    if (!onlyEv) return filteredByFee;
-    return filteredByFee.filter((p) => isEvCapable(p));
-  }, [filteredByFee, onlyEv]);
+  const evFiltered = useMemo(() => {
+    if (!evOnly) return payFiltered;
+    return payFiltered.filter((p) => hasEv(p));
+  }, [payFiltered, evOnly]);
 
-  // 반경 필터(1km)
-  const radiusFiltered = useMemo(() => {
-    if (!radiusFilter || !myPos) return filteredByEv;
-
-    return filteredByEv.filter((p) => {
+  /**
+   * ✅ 정렬/상단10개 로직 핵심
+   * - 거리/요금 정렬은 “내 위치 기반 1km 이내”만 대상으로 함 (요구사항)
+   * - 1km 내 데이터가 너무 적거나 위치가 없으면 fallback
+   */
+  const poolForSort = useMemo(() => {
+    if (!myPos) return evFiltered;
+    return evFiltered.filter((p) => {
       const pos = getValidLatLon(p);
       if (!pos) return false;
       const d = getDistance(myPos.lat, myPos.lon, pos.lat, pos.lon);
-      return d <= RADIUS;
+      return d <= RADIUS_FOR_SORT;
     });
-  }, [filteredByEv, radiusFilter, myPos]);
+  }, [evFiltered, myPos]);
 
-  // 정렬
   const sorted = useMemo(() => {
-    const list = radiusFiltered;
+    const base = myPos ? poolForSort : evFiltered;
 
+    // 거리순(기본)
     if (sortOption === "distance") {
-      if (!myPos) return list; // 위치 없으면 정렬 불가 → 원본 유지
-      return [...list].sort((a, b) => {
+      if (!myPos) return base;
+      return [...base].sort((a, b) => {
         const A = getValidLatLon(a);
         const B = getValidLatLon(b);
         if (!A || !B) return 0;
@@ -342,37 +161,39 @@ export default function ParkingList() {
       });
     }
 
+    // 기본요금 낮은순
     if (sortOption === "baseFee") {
-      return [...list].sort((a, b) => {
-        const fa = getFees(a).baseFee ?? Number.POSITIVE_INFINITY;
-        const fb = getFees(b).baseFee ?? Number.POSITIVE_INFINITY;
+      return [...base].sort((a, b) => {
+        const fa = getBaseFee(a);
+        const fb = getBaseFee(b);
+        if (fa === null && fb === null) return 0;
+        if (fa === null) return 1;
+        if (fb === null) return -1;
         return fa - fb;
       });
     }
 
-    // addFee
-    return [...list].sort((a, b) => {
-      const fa = getFees(a).addFee ?? Number.POSITIVE_INFINITY;
-      const fb = getFees(b).addFee ?? Number.POSITIVE_INFINITY;
+    // 추가요금 낮은순
+    return [...base].sort((a, b) => {
+      const fa = getAddFee(a);
+      const fb = getAddFee(b);
+      if (fa === null && fb === null) return 0;
+      if (fa === null) return 1;
+      if (fb === null) return -1;
       return fa - fb;
     });
-  }, [radiusFiltered, sortOption, myPos]);
+  }, [evFiltered, myPos, poolForSort, sortOption]);
 
-  // ✅ 상단 10개만 (탭/필터/정렬 결과에서)
+  // ✅ 상단 10개만 표시
   const top10 = useMemo(() => sorted.slice(0, 10), [sorted]);
 
-  // 지도 마커(top10 기준)
+  // 지도 마커도 top10 기준
   const mapMarkers = useMemo(() => {
     return top10
       .map((p) => {
         const pos = getValidLatLon(p);
         if (!pos) return null;
-
-        const pid = getPid(p);
-        const title = String(
-          p?.name ?? p?.PKLT_NM ?? p?.PARKING_NAME ?? "주차장"
-        );
-        return { id: pid, title, lat: pos.lat, lon: pos.lon };
+        return { id: getPid(p), title: getName(p), lat: pos.lat, lon: pos.lon };
       })
       .filter(Boolean) as {
       id: string;
@@ -382,6 +203,7 @@ export default function ParkingList() {
     }[];
   }, [top10]);
 
+  // 즐겨찾기 토글(✅ 400 "이미 추가"면 재동기화 + 안내)
   const toggleFavorite = async (item: any) => {
     if (!user?._id) {
       Alert.alert("안내", "로그인이 필요합니다.");
@@ -393,21 +215,43 @@ export default function ParkingList() {
 
     try {
       if (isFav) {
+        // favorites에서 favorite 문서(_id)를 찾아 삭제
         const doc = favorites.find((f) => String(f.resourceId) === pid);
-        if (doc) {
-          await removeFavorite({ favoriteId: doc._id, userId: user._id });
-          setFavorites((prev) => prev.filter((f) => f._id !== doc._id));
+        if (!doc?._id) {
+          // 로컬 상태가 꼬였을 가능성 → 재조회
+          await refetchFavorites(user._id);
+          Alert.alert(
+            "안내",
+            "즐겨찾기 정보를 다시 불러왔습니다. 다시 시도하십시오."
+          );
+          return;
         }
+        await removeFavorite({ favoriteId: doc._id, userId: user._id });
+        await refetchFavorites(user._id);
+        Alert.alert("완료", "즐겨찾기를 해제했습니다.");
       } else {
-        const res = await addFavorite({
+        await addFavorite({
           userId: user._id,
           resourceId: pid,
           resourceType: "parking",
         });
-        setFavorites((prev) => [...prev, res.data]);
+        await refetchFavorites(user._id);
+        Alert.alert("완료", "즐겨찾기에 추가했습니다.");
       }
-    } catch (e) {
-      console.log("[toggleFavorite error]", e);
+    } catch (e: any) {
+      const msg =
+        e?.response?.data?.message ?? e?.message ?? "요청에 실패했습니다.";
+      if (String(msg).includes("이미 즐겨찾기")) {
+        // 서버에는 이미 들어간 상태 → 다시 동기화 후 사용자에게는 “이미 되어있음” 안내
+        await refetchFavorites(user._id);
+        Alert.alert("안내", "이미 즐겨찾기에 추가된 항목입니다.");
+        return;
+      }
+      if (e?.response?.status === 401) {
+        Alert.alert("오류", "즐겨찾기 요청이 실패했습니다. (토큰/권한 확인)");
+        return;
+      }
+      Alert.alert("오류", msg);
     }
   };
 
@@ -420,136 +264,166 @@ export default function ParkingList() {
   }
 
   return (
-    <ScrollView style={{ padding: 16 }}>
+    <ScrollView
+      style={styles.page}
+      contentContainerStyle={{ paddingBottom: 24 }}
+    >
       <KakaoMap
-        height={260}
+        height={220}
         center={myPos ? { lat: myPos.lat, lon: myPos.lon } : null}
+        myPos={myPos}
         markers={mapMarkers}
       />
 
       <View style={{ height: 12 }} />
 
-      {/* 검색창 */}
       <TextInput
-        style={{
-          borderWidth: 1,
-          borderColor: "#e5e7eb",
-          paddingHorizontal: 14,
-          paddingVertical: 12,
-          borderRadius: 12,
-          marginBottom: 12,
-          backgroundColor: "white",
-        }}
-        placeholder="주차장 검색"
+        style={styles.search}
+        placeholder="주차장 이름/주소 검색"
         value={search}
         onChangeText={setSearch}
       />
 
-      {/* 정렬 + 요금구분 드롭다운 */}
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          gap: 10,
-          marginBottom: 10,
-        }}
-      >
-        <SelectModal<SortOption>
-          label="정렬:"
-          value={sortOption}
-          options={[
-            { label: "기본요금 낮은순", value: "baseFee" },
-            { label: "거리 가까운순", value: "distance" },
-            { label: "추가요금 낮은순", value: "addFee" },
-          ]}
-          onChange={(v) => {
-            if (v === "distance" && !myPos) {
-              Alert.alert(
-                "안내",
-                "현재 위치를 가져오지 못해 거리순 정렬을 사용할 수 없습니다."
-              );
-              return;
-            }
-            setSortOption(v);
-          }}
-        />
+      {/* 정렬 */}
+      <View style={styles.panel}>
+        <Text style={styles.panelTitle}>정렬</Text>
+        <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
+          <Chip
+            active={sortOption === "distance"}
+            onPress={() => setSortOption("distance")}
+            label="거리 가까운순"
+          />
+          <Chip
+            active={sortOption === "baseFee"}
+            onPress={() => setSortOption("baseFee")}
+            label="기본요금 낮은순"
+          />
+          <Chip
+            active={sortOption === "addFee"}
+            onPress={() => setSortOption("addFee")}
+            label="추가요금 낮은순"
+          />
+        </View>
 
-        <SelectModal<FeeFilter>
-          label="요금 구분:"
-          value={feeFilter}
-          options={[
-            { label: "전체", value: "all" },
-            { label: "무료", value: "free" },
-            { label: "유료", value: "paid" },
-          ]}
-          onChange={setFeeFilter}
-        />
+        <View style={{ height: 12 }} />
+
+        {/* 유무료 */}
+        <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
+          <Chip
+            active={payFilter === "all"}
+            onPress={() => setPayFilter("all")}
+            label="전체"
+          />
+          <Chip
+            active={payFilter === "free"}
+            onPress={() => setPayFilter("free")}
+            label="무료"
+          />
+          <Chip
+            active={payFilter === "paid"}
+            onPress={() => setPayFilter("paid")}
+            label="유료"
+          />
+        </View>
+
+        <View style={{ height: 12 }} />
+
+        {/* EV 필터 */}
+        <View style={styles.row}>
+          <Text style={styles.rowLabel}>전기차 충전 가능 주차장만</Text>
+          <Switch value={evOnly} onValueChange={setEvOnly} />
+        </View>
+
+        <Text style={styles.hint}>
+          표시: 상단 10개 (정렬 대상은 내 위치 기준 1km 이내 우선)
+        </Text>
       </View>
 
-      {/* 체크 필터: EV / 1km */}
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 8,
-          marginBottom: 12,
-          flexWrap: "wrap",
-        }}
-      >
-        <Pressable
-          onPress={() => setOnlyEv((v) => !v)}
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 10,
-            borderRadius: 12,
-            backgroundColor: onlyEv ? "#3b82f6" : "#e5e7eb",
-          }}
-        >
-          <Text style={{ color: onlyEv ? "white" : "black" }}>
-            전기차 충전 가능 주차장만
-          </Text>
-        </Pressable>
-
-        <Pressable
-          onPress={() => {
-            if (!myPos) {
-              Alert.alert(
-                "안내",
-                "현재 위치를 가져오지 못해 1km 필터를 사용할 수 없습니다."
-              );
-              return;
-            }
-            setRadiusFilter((v) => !v);
-          }}
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 10,
-            borderRadius: 12,
-            backgroundColor: radiusFilter ? "#3b82f6" : "#e5e7eb",
-          }}
-        >
-          <Text style={{ color: radiusFilter ? "white" : "black" }}>
-            1km 이내
-          </Text>
-        </Pressable>
-      </View>
-
-      {/* ✅ 리스트(카드형) - top10만 */}
+      {/* 카드 10개만 */}
       {top10.map((item, idx) => {
         const pid = getPid(item);
-        const fees = getFees(item);
-
         return (
           <ParkingCard
             key={pid || String(idx)}
             item={item}
             isFavorite={favIds.has(pid)}
             onToggleFavorite={() => toggleFavorite(item)}
-            baseFee={fees.baseFee}
-            addFee={fees.addFee}
           />
         );
       })}
+
+      {/* 1km 내 대상이 0개면 안내 */}
+      {myPos && sorted.length === 0 && (
+        <View style={{ padding: 16 }}>
+          <Text style={{ color: "#6b7280" }}>
+            현재 위치 1km 이내 조건에서 결과가 없습니다.
+          </Text>
+        </View>
+      )}
     </ScrollView>
   );
 }
+
+function Chip({
+  active,
+  label,
+  onPress,
+}: {
+  active: boolean;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={[
+        {
+          paddingHorizontal: 14,
+          paddingVertical: 10,
+          borderRadius: 999,
+          borderWidth: 1,
+          borderColor: active ? "#2563eb" : "#e5e7eb",
+          backgroundColor: active ? "#2563eb" : "#f3f4f6",
+        },
+      ]}
+    >
+      <Text style={{ fontWeight: "800", color: active ? "white" : "#111827" }}>
+        {label}
+      </Text>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  page: { flex: 1, padding: 16, backgroundColor: "#f8fafc" },
+  search: {
+    borderWidth: 1,
+    borderColor: "#e5e7eb",
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    borderRadius: 14,
+    backgroundColor: "#fff",
+    marginBottom: 12,
+  },
+  panel: {
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#e5e7eb",
+    borderRadius: 18,
+    padding: 14,
+    marginBottom: 12,
+  },
+  panelTitle: {
+    fontSize: 16,
+    fontWeight: "900",
+    color: "#111827",
+    marginBottom: 10,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  rowLabel: { fontSize: 14, fontWeight: "800", color: "#111827" },
+  hint: { marginTop: 10, fontSize: 12, color: "#6b7280", fontWeight: "700" },
+});

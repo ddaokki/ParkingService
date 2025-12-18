@@ -44,6 +44,11 @@ export default function AuthProvider({
   useEffect(() => {
     (async () => {
       const rawUser = await AsyncStorage.getItem("user");
+      const token = await AsyncStorage.getItem("accessToken");
+
+      // 부팅 로그
+      // console.log("[Auth] boot", { hasToken: !!token, hasUser: !!rawUser });
+
       if (rawUser) setUser(JSON.parse(rawUser));
     })();
   }, []);
@@ -61,6 +66,7 @@ export default function AuthProvider({
         res.data?.token ??
         res.data?.jwt ??
         res.data?.data?.accessToken;
+
       const u =
         res.data?.user ?? res.data?.data?.user ?? res.data?.profile ?? null;
 
@@ -69,6 +75,8 @@ export default function AuthProvider({
       await AsyncStorage.setItem("accessToken", token);
       await AsyncStorage.setItem("user", JSON.stringify(u));
       setUser(u);
+
+      // console.log("[Auth] login ok", { hasToken: true, userId: u._id });
       return true;
     } catch (e) {
       return false;
@@ -90,9 +98,9 @@ export default function AuthProvider({
         res.data?.token ??
         res.data?.jwt ??
         res.data?.data?.accessToken;
+
       const u = res.data?.user ?? res.data?.data?.user ?? null;
 
-      // 회원가입 직후 자동 로그인까지 하고 싶으면 token/user가 내려오는 경우 저장
       if (token && u?._id) {
         await AsyncStorage.setItem("accessToken", token);
         await AsyncStorage.setItem("user", JSON.stringify(u));

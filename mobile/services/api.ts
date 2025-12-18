@@ -7,31 +7,27 @@ const BASE_URL =
 
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 15000,
+  timeout: 20000,
 });
 
-// ✅ 요청마다 토큰 자동 첨부
 api.interceptors.request.use(async (config) => {
   const token = await AsyncStorage.getItem("accessToken");
-  if (token) {
-    config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  // 디버그 로그(원하시면 제거)
-  // console.log("[REQ]", config.method?.toUpperCase(), config.url, !!token);
+  config.headers = config.headers ?? {};
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+
+  // 디버그
+  // console.log("[REQ]", config.method?.toUpperCase(), config.baseURL + config.url, token ? "(with token)" : "(no token)");
   return config;
 });
 
-// ✅ 401 디버그
 api.interceptors.response.use(
   (res) => res,
   async (err) => {
-    // console.log("[ERR]", err?.response?.status, err?.config?.url);
+    // console.log("[ERR]", err?.response?.status, err?.config?.url, err?.response?.data);
     return Promise.reject(err);
   }
 );
 
-// Parkings
 export const getAllParkings = () => api.get("/parkings");
 
 // Auth
@@ -50,10 +46,13 @@ export const getFavoritesByUser = (userId: string) =>
 
 export const addFavorite = (params: {
   userId: string;
-  resourceId: string | number;
+  resourceId: string;
   resourceType: "parking" | "evcharger";
 }) => api.post("/favorites", params);
 
+/**
+ * 백엔드가 DELETE /favorites/:id 에서 userId를 body로 요구하는 형태로 보이므로 그대로 유지
+ */
 export const removeFavorite = (params: {
   favoriteId: string;
   userId: string;
