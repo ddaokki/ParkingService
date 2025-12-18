@@ -124,23 +124,3 @@ npx expo start
 ```
 
 ---
-
-### 📂 프로젝트 구조
-ParkingService
-├── backend
-│   ├── models
-│   ├── routes
-│   ├── services
-│   └── utils
-├── frontend
-│   ├── src
-│   ├── pages
-│   └── components
-└── mobile
-    ├── app
-    ├── components
-    ├── context
-    ├── services
-    └── utils
-
----
