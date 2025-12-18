@@ -1,8 +1,5 @@
 # ParkingService
-ddaokki - 서정민
-gudwn97 - 안형주
-Propeex - 안준현
-paksak4 - 박재석
+
 # 👥 팀 구성 및 역할
 이름	역할
 서정민(ddaokki)	풀스택 개발
