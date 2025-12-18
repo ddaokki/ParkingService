@@ -1,72 +1,40 @@
+// services/api.ts
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// RN용 BASE_URL
 const BASE_URL =
   "https://kyevhp3ds7.execute-api.ap-northeast-2.amazonaws.com/api";
 
-// 메모리 내 토큰 (Authorization 헤더 주입용)
-let authToken: string | null = null;
-
-// AuthContext에서 로그인/로그아웃/복구 시 호출
-export function setAuthToken(token: string | null) {
-  authToken = token;
-}
-
-// Axios instance
 const api = axios.create({
   baseURL: BASE_URL,
   timeout: 15000,
 });
 
-// ==========================
-// Interceptors
-// ==========================
-api.interceptors.request.use((config) => {
-  // ✅ JWT 자동 첨부
-  if (authToken) {
+// ✅ 요청마다 토큰 자동 첨부
+api.interceptors.request.use(async (config) => {
+  const token = await AsyncStorage.getItem("accessToken");
+  if (token) {
     config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${authToken}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
-
-  console.log(
-    "[REQ]",
-    config.method?.toUpperCase(),
-    (config.baseURL || "") + (config.url || "")
-  );
+  // 디버그 로그(원하시면 제거)
+  // console.log("[REQ]", config.method?.toUpperCase(), config.url, !!token);
   return config;
 });
 
+// ✅ 401 디버그
 api.interceptors.response.use(
-  (res) => {
-    console.log("[RES]", res.status, res.config.url);
-    return res;
-  },
-  (err) => {
-    console.log("[ERR]", err.message);
-    console.log(
-      "[ERR] response?",
-      !!err.response,
-      "status:",
-      err.response?.status
-    );
-    console.log("[ERR] request?", !!err.request);
+  (res) => res,
+  async (err) => {
+    // console.log("[ERR]", err?.response?.status, err?.config?.url);
     return Promise.reject(err);
   }
 );
 
-// ==========================
 // Parkings
-// ==========================
 export const getAllParkings = () => api.get("/parkings");
 
-// ==========================
-// EV Chargers
-// ==========================
-export const getEvChargers = () => api.get("/evchargers");
-
-// ==========================
 // Auth
-// ==========================
 export const register = (payload: { username: string; password: string }) =>
   api.post("/auth/register", payload);
 
@@ -76,9 +44,7 @@ export const login = (payload: { username: string; password: string }) =>
 export const getProfile = (userId: string) =>
   api.get(`/auth/profile/${userId}`);
 
-// ==========================
 // Favorites
-// ==========================
 export const getFavoritesByUser = (userId: string) =>
   api.get(`/favorites/user/${userId}`);
 
